@@ -1,9 +1,9 @@
 Testing accuracy for smaller network (3 Conv, 4 FC) :-	
-Overall correct 1722 percentage correct71.157024793388 % 	
-1	67.453625632378 % 	
-2	79.842519685039 % 	
-3	63.41059602649 % 	
-4	73.469387755102 % 	
+Overall correct 1746 percentage correct72.148760330579 % 	
+1	70.608695652174 % 	
+2	78.778135048232 % 	
+3	69.666666666667 % 	
+4	69.341894060995 %  	
 
 Testing accuracy for larger network (4 Conv, 4 FC) :-
 Overall correct 1759 percentage correct72.685950413223 % 	
