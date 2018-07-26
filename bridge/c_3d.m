@@ -1,5 +1,5 @@
 fid = fopen('test3D.txt','wt'); % put file name here
-array = rand(4,2,3); % put the fuckin array here
+array = rand(4,2,3); % input array here
 % run bassss
 
 fprintf(fid,'{');
