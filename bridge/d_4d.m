@@ -1,6 +1,5 @@
 fid = fopen('test4D.txt','wt'); % put file name here
-A = rand(4,2,2,3); % put the fuckin array here
-% run bassss
+A = rand(4,2,2,3); 
 
 fprintf(fid,'{');
 s = [''];
