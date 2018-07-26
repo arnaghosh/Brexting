@@ -1,5 +1,5 @@
 fid = fopen('test2D.txt','wt');% put file name here
-array = rand(4,2);% put the fuckin array here
+array = rand(4,2);% input array here
 % run bassss
 fprintf(fid,'{');
 for i = 1 : size(array,1)
