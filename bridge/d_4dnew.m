@@ -1,5 +1,5 @@
 fid = fopen('test4DnewAF.txt','wt'); % put file name here
-array1 = Weights.Layer1; % put the fuckin array here
+array1 = Weights.Layer1; 
 array = permute(array1,[4 3 2 1]);
 % run bassss
 
