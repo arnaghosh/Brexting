@@ -1,5 +1,5 @@
 
-float* fully_connect(float* image,float** weight,float* bias, int r,int c)
+float* fully_connect(int r,int c, const float image[c], const float weight[r][c],const float bias[r])
 {
 	int i,j;
 	float* out_image;

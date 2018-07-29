@@ -1,4 +1,4 @@
-float* batch_norm(float* a,float* mean, float* variance, float*  affine_r,float* affine_c,int num)
+float* batch_norm(int num, const float a[num],const float mean[num], const float variance[num], const float affine_r[num],const float affine_c[num])
 {
 	int i;
 	float* out;

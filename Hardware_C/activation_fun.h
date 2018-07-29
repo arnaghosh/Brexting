@@ -37,7 +37,7 @@ float*** activation(float*** image,int ch, int n_r,int n_c)
 	return out;
 }
 
-float* activation_1d(float* vec,int length)
+float* activation_1d(int length, const float vec[length])
 {
 	float* out_vec;
 	int i;
