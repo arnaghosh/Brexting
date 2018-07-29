@@ -11,7 +11,8 @@
 #include"fully_connected.h"
 //#include"convolution.h"
 #include"batch_norms.h"
-#include "movement.h"
+//#include "movement.h"
+#include "movement_figure.h"
 
 
 
@@ -43,7 +44,6 @@ int main(void)
 	float* un_vect7;
 	
 	int final_out;
-    int i,j;
     
     static const float inp[4][32] = {{0.442492,0,0.628438,0.253064,0,0,0,0,0,0,0,0,0.00908585,0,0,1.00053e-42,1.60643e-18,0,0,0,0,0,2.37156e-06,0.168486,0,0,0,0,0,0,0,0},{0.277291,0,0.266489,0.319079,0,0,0.505466,0,0,0,0,0,0.00845936,0.0130044,0.442407,1.00053e-42,1.60644e-18,0,0.194521,0,0,0,2.37156e-06,0.231257,0,0.0876253,0,0,0,0,0,0},{0.182863,0,0.0204466,0,0.000117886,0,0.158559,0,0,0,0,0,0.00854225,0.415741,0.153691,1.00053e-42,1.60643e-18,0,0,0,0,0,2.37156e-06,0.132753,0,0,0,0,0,0,0.0523204,0},{0.142805,0.0323475,0.161221,0.255,0.00227299,0,0,0,0,0,0,0,0.0109124,0.000479074,0,1.00053e-42,1.60644e-18,0,0,0,0,0,2.37156e-06,0.503747,0,0,0,0,0,0,0,0}};
 
@@ -100,6 +100,7 @@ int main(void)
 
     int iter = 0;
     //int movement[5] = {1,2,3,1,4};
+
     for (iter=0;iter<sizeof(movement)/sizeof(movement[0]);iter++){
     	if(movement[iter]==-1){
     		printf("%d\n",movement[iter]);
@@ -108,6 +109,7 @@ int main(void)
     		usleep(2000000);
     	}
     	else{
+    		//printf("input:%d ",movement[iter]);
 		   un_vect3 = fully_connect(16,32,inp[movement[iter]-1],weight_fc2,bias_fc2);
 		   un_vect35 = batch_norm(16,un_vect3,mean2,variance2,affine_r2,affine_c2);
 		   un_vect4 = activation_1d(16, un_vect35);
