@@ -109,8 +109,9 @@ if __name__ == "__main__":
 	current_canvas,all_hinge_x,all_hinge_y,x_0,y_0 = drawOnCanvas(15);
 	all_hinge_x = all_hinge_x.astype(int)
 	all_hinge_y = all_hinge_y.astype(int)
-	for i in range(1,len(all_hinge_x)):
-		current_canvas = cv2.line(current_canvas,(all_hinge_x[i-1],all_hinge_y[i-1]),(all_hinge_x[i],all_hinge_y[i]),(255,0,0),3);
+	# draw blue lines (GT) here
+	#for i in range(1,len(all_hinge_x)):
+	#	current_canvas = cv2.line(current_canvas,(all_hinge_x[i-1],all_hinge_y[i-1]),(all_hinge_x[i],all_hinge_y[i]),(255,0,0),3);
 
 	cv2.imshow('Canvas1',current_canvas);
 	cv2.waitKey(0);
