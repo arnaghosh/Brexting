@@ -1,8 +1,8 @@
-float* batch_norm(int num, const float a[num],const float mean[num], const float variance[num], const float affine_r[num],const float affine_c[num])
+float* batch_norm(int num, const float a[num],const float mean[num], const float variance[num], const float affine_r[num],const float affine_c[num],float* out)
 {
 	int i;
-	float* out;
-	out = (float*) malloc(num*sizeof(float));
+	//float* out;
+	out = (float*) realloc(out,num*sizeof(float));
  		
 	for(i=0;i<num;i++)
 	{

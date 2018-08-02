@@ -3,7 +3,8 @@
 #include <string.h>
 #include <unistd.h>
 
-#include <sys/alt_alarm.h>
+//#include <sys/alt_alarm.h>
+
 
 
 //#include"max_pooling.h"
@@ -13,8 +14,6 @@
 #include"batch_norms.h"
 //#include "movement.h"
 #include "movement_figure.h"
-
-
 
 float max_10(int length, const float vec[length])
 {
@@ -35,13 +34,13 @@ float max_10(int length, const float vec[length])
 
 int main(void)
 {
-	float* un_vect3;
-	float* un_vect35;
-	float* un_vect4;
-	float* un_vect5;
-	float* un_vect55;
-	float* un_vect6;
-	float* un_vect7;
+	float* un_vect3 = malloc(1);
+	float* un_vect35 = malloc(1);
+	float* un_vect4 = malloc(1);
+	float* un_vect5 = malloc(1);
+	float* un_vect55 = malloc(1);
+	float* un_vect6 = malloc(1);
+	float* un_vect7 = malloc(1);
 	
 	int final_out;
     
@@ -106,24 +105,31 @@ int main(void)
     		printf("%d\n",movement[iter]);
     	}
     	else if(movement[iter]==0){
-    		usleep(2000000);
+    		//usleep(2000000);
     	}
     	else{
     		//printf("input:%d ",movement[iter]);
-		   un_vect3 = fully_connect(16,32,inp[movement[iter]-1],weight_fc2,bias_fc2);
-		   un_vect35 = batch_norm(16,un_vect3,mean2,variance2,affine_r2,affine_c2);
-		   un_vect4 = activation_1d(16, un_vect35);
+		   un_vect3 = fully_connect(16,32,inp[movement[iter]-1],weight_fc2,bias_fc2,un_vect3);
+		   un_vect35 = batch_norm(16,un_vect3,mean2,variance2,affine_r2,affine_c2,un_vect35);
+		   un_vect4 = activation_1d(16, un_vect35,un_vect4);
 
-			un_vect5 = fully_connect(8,16,un_vect4,weight_fc3,bias_fc3);
-			un_vect55 = batch_norm(8,un_vect5,mean3,variance3,affine_r3,affine_c3);
-			un_vect6 = activation_1d(8,un_vect55);
+			un_vect5 = fully_connect(8,16,un_vect4,weight_fc3,bias_fc3,un_vect5);
+			un_vect55 = batch_norm(8,un_vect5,mean3,variance3,affine_r3,affine_c3,un_vect55);
+			un_vect6 = activation_1d(8,un_vect55,un_vect6);
 
-			un_vect7 = fully_connect(4,8,un_vect6,weight_fc4,bias_fc4);
+			un_vect7 = fully_connect(4,8,un_vect6,weight_fc4,bias_fc4,un_vect7);
 			final_out = max_10(4,un_vect7);
 			printf ("%d\n", final_out);
     	}
 		usleep(500000);
     }
+	free(un_vect3);
+	free(un_vect35);
+	free(un_vect4);
+	free(un_vect5);
+	free(un_vect55);
+	free(un_vect6);
+	free(un_vect7);
    return(0);
 
 }

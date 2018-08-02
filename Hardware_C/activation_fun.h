@@ -8,17 +8,17 @@ float function_sign(float num,int threshold)
 	   	        
 }
 
-float*** activation(float*** image,int ch, int n_r,int n_c)
+float*** activation(float*** image,int ch, int n_r,int n_c,float*** out)
 {
-	float*** out;
+	//float*** out;
 	int i,j,k;
-	out = (float***) malloc(ch*sizeof(float**));
+	out = (float***) realloc(out,ch*sizeof(float**));
 	for(i=0;i<ch;i=i+1)
 	{
-		out[i] = (float**) malloc(n_r*sizeof(float*));
+		out[i] = (float**) realloc(out[i],n_r*sizeof(float*));
 		for(j=0;j<n_r;j=j+1)
 		{
-			out[i][j] = (float*) malloc(n_c*sizeof(float));
+			out[i][j] = (float*) realloc(out[i][j],n_c*sizeof(float));
 			for(k = 0;k<n_c;k=k+1)
 				out[i][j][k] = 0;
 	    }   
@@ -37,15 +37,14 @@ float*** activation(float*** image,int ch, int n_r,int n_c)
 	return out;
 }
 
-float* activation_1d(int length, const float vec[length])
+float* activation_1d(int length, const float vec[length],float* out_vec)
 {
-	float* out_vec;
+	//float* out_vec;
 	int i;
-	out_vec = (float*) malloc(length*sizeof(float));
+	out_vec = (float*) realloc(out_vec,length*sizeof(float));
 	for(i=0;i<length;i=i+1)
 	{
 		out_vec[i] =  function_sign(vec[i],6);
 	}
 	return out_vec;
 }
-
