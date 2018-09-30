@@ -8,8 +8,6 @@ model:add(nn.ReLU())
 model:add(nn.SpatialMaxPooling(2,1,2,1))
 
 model:add(nn.SpatialConvolution(8,16,5,1,2,1,2,0))
---model:add(nn.SpatialBatchNormalization(16,nil,nil,false))
---model:add(nn.SpatialBatchNormalization(16))
 model:add(nn.ReLU())
 --model:add(nn.SpatialConvolution(16,16,3,1,1,1,1,0))
 --model:add(nn.SpatialBatchNormalization(16,nil,nil,false))
