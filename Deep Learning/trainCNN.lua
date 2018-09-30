@@ -7,7 +7,7 @@ require 'cunn';
 require 'hdf5';
 
 model = require 'model.lua';
-model:cuda();
+model:cuda()
 
 file = hdf5.open('AllTrials.h5','r')
 data = file:read('/home/TF'):all()
