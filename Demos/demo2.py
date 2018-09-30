@@ -59,7 +59,7 @@ def drawOnCanvas(step):
 				all_hinge_y = np.append(all_hinge_y,hinge_y);
 				
 		cv2.imshow('Canvas1',img);
-	writeToFile('C:/Users/arnat/Desktop/temp/Demonstrations/SoC_FPGA/Nios_Access_DDR3/software/p1_t1/movement_figure.h',movement_dirs);
+	writeToFile('C:/Users/arnat/Desktop/temp/Nios_Access_DDR3/software/brexting/movement_figure.h',movement_dirs);
 	return img,all_hinge_x,all_hinge_y,x_0,y_0;
 
 def mimicDrawing(image,step,x_0,y_0):
@@ -71,7 +71,7 @@ def mimicDrawing(image,step,x_0,y_0):
         r = proc.stdout.readline().strip()
         r = proc.stdout.readline().strip()
 
-        s_cmd = '"C:\\altera_lite\\16.0\\nios2eds\\Nios II Command Shell.bat" nios2-download -g C:/Users/arnat/Desktop/temp/Demonstrations/SoC_FPGA/Nios_Access_DDR3/software/p1_t1/p1_t1.elf'
+        s_cmd = '"C:\\altera_lite\\16.0\\nios2eds\\Nios II Command Shell.bat" nios2-download -g C:/Users/arnat/Desktop/temp/Nios_Access_DDR3/software/brexting/brexting.elf'
         os.system(s_cmd);
         while(1):
                 try:
@@ -106,7 +106,7 @@ def mimicDrawing(image,step,x_0,y_0):
 
 
 if __name__ == "__main__":
-	current_canvas,all_hinge_x,all_hinge_y,x_0,y_0 = drawOnCanvas(15);
+	current_canvas,all_hinge_x,all_hinge_y,x_0,y_0 = drawOnCanvas(7);
 	all_hinge_x = all_hinge_x.astype(int)
 	all_hinge_y = all_hinge_y.astype(int)
 	# draw blue lines (GT) here
@@ -116,11 +116,11 @@ if __name__ == "__main__":
 	cv2.imshow('Canvas1',current_canvas);
 	cv2.waitKey(0);
 	currWD = os.getcwd();
-	os.chdir("C:\\Users\\arnat\\Desktop\\temp\\Demonstrations\\SoC_FPGA\\Nios_Access_DDR3\\software\\p1_t1");
+	os.chdir("C:\\Users\\arnat\\Desktop\\temp\\Nios_Access_DDR3\\software\\brexting");
 	s_cmd = '"C:\\altera_lite\\16.0\\nios2eds\\Nios II Command Shell.bat" make all';
 	os.system(s_cmd);
 	os.chdir(currWD);
-        current_canvas = mimicDrawing(current_canvas,15,x_0,y_0);
+        current_canvas = mimicDrawing(current_canvas,7,x_0,y_0);
         cv2.imshow('Canvas1',current_canvas);
 	cv2.waitKey(0);	
 	cv2.destroyAllWindows()	
